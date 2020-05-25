@@ -1,0 +1,31 @@
+
+#nav-logo {
+    max-width: 100px;
+}
+
+#main-logo {
+    display: block;
+    margin: 1rem auto;
+    max-width: 350px;
+    width: 100%;
+}
+
+.update-profile-form {
+    h4 {text-align: center;}
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    color: $gray;
+    border: 2px solid $orange-soda;
+
+    .update-profile-button {
+        width: 100%;
+        background: $orange-soda;
+        transition: all 250ms;
+        border: none;
+        &:hover {
+            background: $jonquil;
+            transition: all 250ms;
+        }
+    }
+}

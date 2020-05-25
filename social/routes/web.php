@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Admin
+Route::get('/admin', 'AdminController@index')->name('admin');
+
 // Hello
 Route::get('/hello', function () {
     return 'Hello World';
@@ -31,3 +34,13 @@ Route::view('/helloworld', 'helloworld');
 
 // Test controller test.
 Route::get('/test', 'TestController@test2');
+
+Route::post('/updateProfile','HomeController@updateProfile');
+
+// ADMIN CONTROLS
+Route::get('/admin/{id}', 'AdminController@editUser')->name('editUser');
+Route::post('/admin/{id}/harddelete', 'AdminController@hardDelete')->name('hardDeleteUser');
+Route::post('/admin/{id}/softdelete', 'AdminController@softDelete')->name('softDeleteUser');
+
+
+

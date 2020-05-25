@@ -10933,3 +10933,38 @@ a.text-dark:focus {
   }
 }
 
+#nav-logo {
+  max-width: 100px;
+}
+
+#main-logo {
+  display: block;
+  margin: 1rem auto;
+  max-width: 350px;
+  width: 100%;
+}
+
+.update-profile-form {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #878E88;
+  border: 2px solid #F55D3E;
+}
+
+.update-profile-form h4 {
+  text-align: center;
+}
+
+.update-profile-form .update-profile-button {
+  width: 100%;
+  background: #F55D3E;
+  transition: all 250ms;
+  border: none;
+}
+
+.update-profile-form .update-profile-button:hover {
+  background: #f7cb15;
+  transition: all 250ms;
+}
+
