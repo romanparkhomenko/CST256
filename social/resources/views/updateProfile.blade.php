@@ -30,6 +30,21 @@
         </div>
 
         <div class="form-group">
+            <label for="skills">Skills</label>
+            <input  type="text" class="form-control" id="skills" placeholder="Skills" value="{{Auth::user()->skills}}" name="skills">
+        </div>
+
+        <div class="form-group">
+            <label for="jobhistory">Job History</label>
+            <input  type="text" class="form-control" id="jobhistory" placeholder="Job History" value="{{Auth::user()->jobhistory}}" name="jobhistory">
+        </div>
+
+        <div class="form-group">
+            <label for="education">Education</label>
+            <input  type="text" class="form-control" id="education" placeholder="Education" value="{{Auth::user()->education}}" name="education">
+        </div>
+
+        <div class="form-group">
             <input type="hidden" class="form-control" id="id" placeholder="id" value="{{Auth::user()->id}}" name="id">
         </div>
 

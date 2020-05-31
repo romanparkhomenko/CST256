@@ -2,6 +2,8 @@
 
 namespace App\Services\Business;
 
+use App\Models\JobModels;
+use App\Services\Data\JobDAO;
 use App\Services\Data\SecurityDAO;
 use App\Models\UserModel;
 use Illuminate\Support\Facades\Log;
@@ -40,6 +42,42 @@ class SecurityService
 
         $service = new SecurityDAO($db);
         $flag = $service->updateUser($user);
+
+        $db = null;
+
+        return $flag;
+    }
+
+    public function addJob(JobModels $job) {
+        $servername = config("database.connections.mysql.host");
+        $username = config("database.connections.mysql.username");
+        $port = config("database.connections.mysql.port");
+        $password = config("database.connections.mysql.password");
+        $dbname = config("database.connections.mysql.database");
+
+        $db = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $service = new JobDAO($db);
+        $flag = $service->addJob($job);
+
+        $db = null;
+
+        return $flag;
+    }
+
+    public function updateJob(JobModels $job) {
+        $servername = config("database.connections.mysql.host");
+        $username = config("database.connections.mysql.username");
+        $port = config("database.connections.mysql.port");
+        $password = config("database.connections.mysql.password");
+        $dbname = config("database.connections.mysql.database");
+
+        $db = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $service = new JobDAO($db);
+        $flag = $service->updateJob($job);
 
         $db = null;
 

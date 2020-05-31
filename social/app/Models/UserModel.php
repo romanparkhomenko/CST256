@@ -14,6 +14,9 @@ class UserModel {
     private $about;
     private $jobtitle;
     private $isAdmin;
+    private $skills;
+    private $jobhistory;
+    private $education;
     private $createdAt;
     private $updatedAt;
 
@@ -67,6 +70,30 @@ class UserModel {
     /**
      * @return mixed
      */
+    public function getEducation()
+    {
+        return $this->education;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJobhistory()
+    {
+        return $this->jobhistory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getIsAdmin()
     {
         return $this->isAdmin;
@@ -110,6 +137,30 @@ class UserModel {
     public function setAbout($about): void
     {
         $this->about = $about;
+    }
+
+    /**
+     * @param mixed $education
+     */
+    public function setEducation($education): void
+    {
+        $this->education = $education;
+    }
+
+    /**
+     * @param mixed $jobhistory
+     */
+    public function setJobhistory($jobhistory): void
+    {
+        $this->jobhistory = $jobhistory;
+    }
+
+    /**
+     * @param mixed $skills
+     */
+    public function setSkills($skills): void
+    {
+        $this->skills = $skills;
     }
 
     /**

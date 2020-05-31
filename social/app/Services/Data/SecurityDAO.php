@@ -50,6 +50,9 @@ class SecurityDAO {
             $about = $user->getAbout();
             $jobtitle = $user->getJobtitle();
             $isAdmin = $user->getIsAdmin();
+            $skills = $user->getSkills();
+            $jobhistory = $user->getJobhistory();
+            $education = $user->getEducation();
             $updatedAt = now();
 
             $stmt = $this->db->prepare('UPDATE users
@@ -60,6 +63,9 @@ class SecurityDAO {
                                             about = :about,
                                             jobtitle = :jobtitle,
                                             isAdmin = :isAdmin,
+                                            skills = :skills,
+                                            jobhistory = :jobhistory,
+                                            education = :education,
                                             updated_at = :updatedAt
                                         WHERE ID = :id');
             $stmt->bindParam(':firstname', $firstname);
@@ -69,6 +75,9 @@ class SecurityDAO {
             $stmt->bindParam(':about', $about);
             $stmt->bindParam(':jobtitle', $jobtitle);
             $stmt->bindParam(':isAdmin', $isAdmin);
+            $stmt->bindParam(':skills', $skills);
+            $stmt->bindParam(':jobhistory', $jobhistory);
+            $stmt->bindParam(':education', $education);
             $stmt->bindParam(':updatedAt', $updatedAt);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -80,7 +89,7 @@ class SecurityDAO {
             }
 
         } catch (PDOException $e) {
-            throw new DatabaseException("Database Exception: " . $e->getMessage(), 0, $e);
+            throw new PDOException("Database Exception: " . $e->getMessage(), 0, $e);
         }
     }
 

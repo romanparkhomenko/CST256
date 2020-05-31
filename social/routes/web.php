@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/myprofile', 'HomeController@myprofile')->name('myprofile');
 
 // Admin
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -42,5 +43,11 @@ Route::get('/admin/{id}', 'AdminController@editUser')->name('editUser');
 Route::post('/admin/{id}/harddelete', 'AdminController@hardDelete')->name('hardDeleteUser');
 Route::post('/admin/{id}/softdelete', 'AdminController@softDelete')->name('softDeleteUser');
 
+// JOB CONTROLS
+Route::get('/admin/jobs/{id}', 'AdminController@editJob')->name('editJob');
+Route::post('/admin/{id}/harddeletejob', 'AdminController@hardDeleteJob')->name('hardDeleteJob');
+Route::post('/admin/{id}/softdeletejob', 'AdminController@softDeleteJob')->name('softDeleteJob');
+Route::post('/addNewJob','HomeController@addJob')->name('addNewJob');
+Route::post('/updateJob','JobController@updateJob')->name('updateJob');
 
 

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <h3>Admin Dashboard</h3>
             <div class="content">
-                <p>Manage Users</p>
+                <h4>Manage Users</h4>
             </div>
 
             <div class="row justify-content-start">
@@ -37,21 +37,67 @@
                                 <td>{{$user->jobtitle}}</td>
                                 <td>{{$user->isAdmin == 1 ? 'Yes' : 'No'}}</td>
                                 <td>
-                                    <a href="{{ route("editUser", $user->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
+                                    <a href="{{ route('editUser', $user->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
+        </div>
+    </div>
 
-                @if ($activeUser ?? '')
-                    <div class="col-md-6">
-                        <h4>Edit User</h4>
-                        @include('updateAdmin')
-                    </div>
-                @endif
+        <div class="col-md-12">
+            <div class="content">
+                <h4>Manage Jobs</h4>
             </div>
+        <div class="row justify-content-start">
+            <div class="col-md-12">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <td>Job ID</td>
+                        <td>Company Name</td>
+                        <td>Job Title</td>
+                        <td>Salary</td>
+                        <td>Description</td>
+                        <td>City</td>
+                        <td>Posted</td>
+                        <td>Edit</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($jobs as $job)
+                        <tr>
+                            <td>{{$job->id}}</td>
+                            <td>{{$job->companyname}}</td>
+                            <td>{{$job->jobtitle}}</td>
+                            <td>{{$job->salary}}</td>
+                            <td>{{$job->description}}</td>
+                            <td>{{$job->city}}</td>
+                            <td>{{$job->createdAt}}</td>
+                            <td>
+                                <a href="{{ route("editJob", $job->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            @if ($activeUser ?? '')
+                <div class="col-md-6">
+                    <h4>Edit User</h4>
+                    @include('updateAdmin')
+                </div>
+            @endif
+
+            @if ($activeJob ?? '')
+                <div class="col-md-6">
+                    <h4>Edit Job</h4>
+                    @include('updateJob')
+                </div>
+            @endif
         </div>
     </div>
 </div>
