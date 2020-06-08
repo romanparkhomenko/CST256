@@ -33,6 +33,23 @@
             </div>
         </div>
 
+        <div class="col-md-12 profile-affinity-groups">
+            <h3>My Groups</h3>
+            <div class="all-user-groups">
+                @if ($userGroups ?? '')
+                    @foreach ($userGroups as $group)
+                        <div class="user-group">
+                            <h4>{{ $group->groupname }}</h4>
+                            <p>Description: {{ $group->description }}</p>
+                            <p>Skills: {{ $group->skills }}</p>
+                            <p>Education: {{ $group->education }}</p>
+                            <p>City: {{ $group->city }}</p>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+
 
     </div>
 </div>

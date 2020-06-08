@@ -20,12 +20,12 @@ class Login3Controller extends Controller {
         $service = new SecurityService();
         $status = $service->login($user);
 
-//        if ($status){
-//            $data = ['model' => $user];
-//            return view('loginPassed2')->with($data);
-//        } else {
-//            return view('loginFailed');
-//        }
+        if ($status){
+            $data = ['model' => $user];
+            return view('loginPassed2')->with($data);
+        } else {
+            return view('loginFailed');
+        }
     }
 
     private function validateForm(Request $request){

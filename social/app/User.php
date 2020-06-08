@@ -19,6 +19,10 @@ class User extends Authenticatable
         'firstname', 'lastname', 'email', 'password',
     ];
 
+    public function affinityGroups() {
+        return $this->belongsToMany('App\AffinityGroups');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

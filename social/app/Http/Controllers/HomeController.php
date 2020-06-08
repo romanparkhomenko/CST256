@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AffinityGroups;
 use App\Models\JobModels;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,11 @@ class HomeController extends Controller
 
     public function myprofile()
     {
-        return view('myprofile');
+        $userGroups = Auth::user()->affinityGroups;
+        $data = [
+            'userGroups' => $userGroups,
+        ];
+        return view('myprofile')->with($data);
     }
 
     public function updateProfile(Request $request) {
@@ -114,5 +119,22 @@ class HomeController extends Controller
 
         // Run Data Validation Rules
         $this->validate($request, $rules);
+    }
+
+    public function createGroup(Request $request) {
+        $affinityGroup = new AffinityGroups;
+        $affinityGroup->groupname = $request->input('groupname');
+        $affinityGroup->city = $request->input('city');
+        $affinityGroup->description = $request->input('description');
+        $affinityGroup->skills = $request->input('skills');
+        $affinityGroup->education = $request->input('education');
+
+        $affinityGroup->save();
+
+        $user = User::find(Auth::user()->id);
+
+        $affinityGroup->users()->attach($user);
+
+        return view('groups');
     }
 }

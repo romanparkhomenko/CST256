@@ -50,4 +50,10 @@ Route::post('/admin/{id}/softdeletejob', 'AdminController@softDeleteJob')->name(
 Route::post('/addNewJob','HomeController@addJob')->name('addNewJob');
 Route::post('/updateJob','JobController@updateJob')->name('updateJob');
 
+// GROUP CONTROLS
+Route::get('/groups', 'GroupsController@index')->name('groups');
+Route::post('/createGroup','HomeController@createGroup')->name('createGroup');
+Route::post('/joinGroup','GroupsController@joinGroup')->name('joinGroup');
+Route::post('/leaveGroup','GroupsController@leaveGroup')->name('leaveGroup');
+
 

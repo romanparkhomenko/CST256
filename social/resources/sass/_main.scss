@@ -90,3 +90,39 @@
         border-radius: 5px;
     }
 }
+
+.profile-affinity-groups {
+    margin: 1rem auto;
+    border: 1px solid $orange-soda;
+    border-radius: 5px;
+}
+
+
+div.user-groups {
+    display: flex;
+    flex-flow: row wrap;
+
+    div.user-group {
+        background: white;
+        padding: 1rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+        max-width: 45%;
+        margin: 0.5rem;
+        p { margin: 0.5rem 0; }
+    }
+}
+
+div.all-user-groups {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1rem auto;
+
+    div.user-group {
+        background: white;
+        padding: 1rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+        max-width: 25%;
+        margin: 0.5rem;
+        p { margin: 0.5rem 0; }
+    }
+}
