@@ -23,6 +23,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\AffinityGroups');
     }
 
+    public function jobPosts() {
+        return $this->belongsToMany('App\JobPosts');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

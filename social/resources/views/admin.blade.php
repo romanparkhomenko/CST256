@@ -62,7 +62,7 @@
                         <td>Salary</td>
                         <td>Description</td>
                         <td>City</td>
-                        <td>Posted</td>
+                        <td>Applicants</td>
                         <td>Edit</td>
                     </tr>
                     </thead>
@@ -73,9 +73,18 @@
                             <td>{{$job->companyname}}</td>
                             <td>{{$job->jobtitle}}</td>
                             <td>{{$job->salary}}</td>
-                            <td>{{$job->description}}</td>
+                            <td width="20%">{{$job->description}}</td>
                             <td>{{$job->city}}</td>
-                            <td>{{$job->createdAt}}</td>
+                            <td width="20%">
+                                <details>
+                                    <summary>Applicants</summary>
+                                    @if ($job->users)
+                                    @foreach($job->users as $user)
+                                        <p><a href="{{ route("profile", $user->id) }}">{{$user->firstname}} {{$user->lastname}}</a></p>
+                                    @endforeach
+                                    @endif
+                                </details>
+                            </td>
                             <td>
                                 <a href="{{ route("editJob", $job->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
                             </td>

@@ -11075,3 +11075,34 @@ div.all-user-groups div.user-group p {
   margin: 0.5rem 0;
 }
 
+.search-job-form {
+  display: flex;
+}
+
+.search-job-form label {
+  display: flex;
+  flex-flow: column;
+}
+
+.search-job-form .search-bar {
+  flex: 1 0 auto;
+}
+
+.search-job-form div.form-group {
+  margin: 0 5px;
+}
+
+.all-jobs {
+  background: white;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+#job-search-results {
+  background: white;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+

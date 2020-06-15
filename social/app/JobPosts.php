@@ -9,4 +9,8 @@ class JobPosts extends Model
     protected $table = 'jobpostings';
 
     protected $primaryKey = 'id';
+
+    public function users() {
+        return $this->belongsToMany('App\User');
+    }
 }

@@ -4,8 +4,9 @@ namespace App\Models;
 
 
 class UserModel {
-    private $username;
-    private $password;
+    public $username;
+    public $password;
+    public $id;
 
     public function __construct($username, $password) {
         $this->username = $username;
@@ -26,6 +27,22 @@ class UserModel {
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
     /**

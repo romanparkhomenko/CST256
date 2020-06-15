@@ -43,17 +43,26 @@ Route::get('/admin/{id}', 'AdminController@editUser')->name('editUser');
 Route::post('/admin/{id}/harddelete', 'AdminController@hardDelete')->name('hardDeleteUser');
 Route::post('/admin/{id}/softdelete', 'AdminController@softDelete')->name('softDeleteUser');
 
-// JOB CONTROLS
+// ADMIN JOB CONTROLS
 Route::get('/admin/jobs/{id}', 'AdminController@editJob')->name('editJob');
 Route::post('/admin/{id}/harddeletejob', 'AdminController@hardDeleteJob')->name('hardDeleteJob');
 Route::post('/admin/{id}/softdeletejob', 'AdminController@softDeleteJob')->name('softDeleteJob');
 Route::post('/addNewJob','HomeController@addJob')->name('addNewJob');
 Route::post('/updateJob','JobController@updateJob')->name('updateJob');
 
+// USER JOB CONTROLS
+Route::get('/jobs', 'JobController@index')->name('jobs');
+Route::post('/searchJobs', 'JobController@searchJobs')->name('searchJobs');
+Route::post('/apply', 'JobController@apply')->name('apply');
+
 // GROUP CONTROLS
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/createGroup','HomeController@createGroup')->name('createGroup');
 Route::post('/joinGroup','GroupsController@joinGroup')->name('joinGroup');
 Route::post('/leaveGroup','GroupsController@leaveGroup')->name('leaveGroup');
+
+
+// PROFILE CONTROLS
+Route::get('/profile/{id}', 'ProfileController@profile')->name('profile');
 
 

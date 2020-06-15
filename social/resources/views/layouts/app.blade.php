@@ -15,9 +15,51 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
+    <script>
+        window.onload = () => {
+            const searchInput = document.getElementById('search');
+            const searchByInput = document.getElementById('searchBy');
+            const orderByInput = document.getElementById('orderBy');
+            const tokenValue = "{{csrf_token()}}";
+
+            const resultsBody = document.getElementById('job-search-results');
+
+            searchInput.onkeyup = (e) => {
+                console.info(e.target.value);
+                const url = "{{URL::to('searchJobs')}}";
+                console.info(e.target.value);
+                const data = {
+                    search: searchInput.value,
+                    searchBy: searchByInput.value,
+                    searchByOrder: orderByInput.value,
+                };
+                const getData = {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-Token": tokenValue,
+                    },
+                    body: JSON.stringify(data),
+                }
+
+                fetch(url, getData)
+                    .then(res => res.json())
+                    .then(response => {
+                        resultsBody.innerHTML = response.html;
+                    });
+            }
+        }
+
+    </script>
 </head>
 <body>
     <div id="app">
@@ -46,6 +88,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('groups') }}">Groups</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('jobs') }}">Jobs</a>
                             </li>
                     </ul>
 
