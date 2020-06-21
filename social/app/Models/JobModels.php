@@ -2,17 +2,102 @@
 
 namespace App\Models;
 
-
+/**
+ * Class JobModels
+ *
+ *
+ * @author  Roman Parkhomenko
+ * @package Model
+ * @OA\Schema(
+ *     description="Job Posts Model.",
+ *     title="Job Posts Model",
+ *     required={"companyname", "jobtitle"}
+ * )
+ */
 class JobModels {
-    private $id;
-    private $companyname;
-    private $jobtitle;
-    private $salary;
-    private $description;
-    private $city;
-    private $createdAt;
-    private $updatedAt;
-    private $deletedAt;
+    /**
+     * @OA\Property(
+     *     format="int64",
+     *     description="ID",
+     *     title="ID",
+     * )
+     *
+     * @var integer
+     */
+    public $id;
+
+    /**
+     * @OA\Property(
+     *     description="Company Name",
+     *     title="companyname",
+     * )
+     *
+     * @var string
+     */
+    public $companyname;
+    /**
+     * @OA\Property(
+     *     description="Job Title",
+     *     title="jobtitle",
+     * )
+     *
+     * @var string
+     */
+    public $jobtitle;
+    /**
+     * @OA\Property(
+     *     description="Salary",
+     *     title="salary",
+     * )
+     *
+     * @var integer
+     */
+    public $salary;
+    /**
+     * @OA\Property(
+     *     description="description",
+     *     title="description",
+     * )
+     *
+     * @var string
+     */
+    public $description;
+    /**
+     * @OA\Property(
+     *     description="City",
+     *     title="city",
+     * )
+     *
+     * @var string
+     */
+    public $city;
+    /**
+     * @OA\Property(
+     *     description="Posted Date",
+     *     title="createdAt",
+     * )
+     *
+     * @var string
+     */
+    public $createdAt;
+    /**
+     * @OA\Property(
+     *     description="Updated Date",
+     *     title="updatedAt",
+     * )
+     *
+     * @var string
+     */
+    public $updatedAt;
+    /**
+     * @OA\Property(
+     *     description="Deleted At",
+     *     title="deletedAt",
+     * )
+     *
+     * @var string
+     */
+    public $deletedAt;
 
     public function __construct($companyname, $jobtitle) {
         $this->companyname = $companyname;

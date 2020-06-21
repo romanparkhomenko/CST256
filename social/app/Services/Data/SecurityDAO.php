@@ -93,5 +93,77 @@ class SecurityDAO {
         }
     }
 
+    public function findByUserID($id){
+        Log::info("Entering SecurityDAO.findByUser()");
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM USERS WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            if ($stmt->rowCount() == 0){
+                return null;
+            } else {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $user = new UserModel($row["username"], $row["password"]);
+                $user->setId($row["id"]);
+                $user->setFirstname($row['firstname']);
+                $user->setLastname($row['lastname']);
+                $user->setUsername($row['username']);
+                $user->setEmail($row['email']);
+                $user->setPhone($row['phone']);
+                $user->setAbout($row['about']);
+                $user->setJobtitle($row['jobtitle']);
+                $user->setIsAdmin($row['isAdmin']);
+                $user->setSkills($row['skills']);
+                $user->setJobhistory($row['jobhistory']);
+                $user->setEducation($row['education']);
+                $user->setCreatedAt($row['created_at']);
+                $user->setUpdatedAt($row['updated_at']);
+                return $user;
+            }
+        } catch (PDOException $e) {
+            Log::error("Exception: ", array("message"  => $e->getMessage()));
+            throw new DatabaseException("Database Exception: " . $e->getMessage(), 0, $e);
+        }
+    }
+
+    public function findAllUsers(){
+        Log::info("Entering SecurityDAO.findByUser()");
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM USERS");
+            $stmt->execute();
+
+            if ($stmt->rowCount() == 0){
+                return array();
+            } else {
+                $index = 0;
+                $users = array();
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    $user = new UserModel($row["username"], $row["password"]);
+                    $user->setId($row["id"]);
+                    $user->setFirstname($row['firstname']);
+                    $user->setLastname($row['lastname']);
+                    $user->setUsername($row['username']);
+                    $user->setEmail($row['email']);
+                    $user->setPhone($row['phone']);
+                    $user->setAbout($row['about']);
+                    $user->setJobtitle($row['jobtitle']);
+                    $user->setIsAdmin($row['isAdmin']);
+                    $user->setSkills($row['skills']);
+                    $user->setJobhistory($row['jobhistory']);
+                    $user->setEducation($row['education']);
+                    $user->setCreatedAt($row['created_at']);
+                    $user->setUpdatedAt($row['updated_at']);
+                    $users[$index++] = $user;
+                }
+                return $users;
+            }
+
+        } catch (PDOException $e) {
+            Log::error("Exception: ", array("message"  => $e->getMessage()));
+            throw new PDOException("Database Exception: " . $e->getMessage(), 0, $e);
+        }
+    }
+
 
 }

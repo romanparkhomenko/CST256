@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'jobs' => 'JobsRestController',
+    'users' => 'UserRestController',
+    'groups' => 'GroupsRestController'
+]);
+
+Route::post('jobs/store', 'JobsRestController@store');
+Route::post('groups/store', 'GroupsRestController@store');

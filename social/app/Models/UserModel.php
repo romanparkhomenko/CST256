@@ -2,22 +2,155 @@
 
 namespace App\Models;
 
-
+/**
+ * Class UserModel
+ *
+ *
+ * @author  Roman Parkhomenko
+ * @package Authenticatable
+ * @OA\Schema(
+ *     description="User Model. Combination of Laravel's Auth extenstion and my own user attributes.",
+ *     title="User Model",
+ *     required={"email", "password"}
+ * )
+ */
 class UserModel {
+    /**
+     * @OA\Property(
+     *     format="int64",
+     *     description="ID",
+     *     title="ID",
+     * )
+     *
+     * @var integer
+     */
     private $id;
+
+    /**
+     * @OA\Property(
+     *     description="User First Name",
+     *     title="firstname",
+     * )
+     *
+     * @var string
+     */
     private $firstname;
+    /**
+     * @OA\Property(
+     *     description="User Last Name",
+     *     title="lastname",
+     * )
+     *
+     * @var string
+     */
     private $lastname;
+    /**
+     * @OA\Property(
+     *     description="Username",
+     *     title="username",
+     * )
+     *
+     * @var string
+     */
     private $username;
+    /**
+     * @OA\Property(
+     *     description="User Password",
+     *     title="password",
+     * )
+     *
+     * @var string
+     */
     private $password;
+    /**
+     * @OA\Property(
+     *     description="User Email",
+     *     title="email",
+     * )
+     *
+     * @var string
+     */
     private $email;
+    /**
+     * @OA\Property(
+     *     description="User Phone",
+     *     title="phone",
+     * )
+     *
+     * @var string
+     */
     private $phone;
+    /**
+     * @OA\Property(
+     *     description="About User Snippet",
+     *     title="about",
+     * )
+     *
+     * @var string
+     */
     private $about;
+    /**
+     * @OA\Property(
+     *     description="User Job Title",
+     *     title="jobtitle",
+     * )
+     *
+     * @var string
+     */
     private $jobtitle;
+    /**
+     * @OA\Property(
+     *     description="User Admin Access",
+     *     title="isAdmin",
+     * )
+     *
+     * @var string
+     */
     private $isAdmin;
+    /**
+     * @OA\Property(
+     *     description="User Skills",
+     *     title="skills",
+     * )
+     *
+     * @var string
+     */
     private $skills;
+    /**
+     * @OA\Property(
+     *     description="User Job History",
+     *     title="jobhistory",
+     * )
+     *
+     * @var string
+     */
     private $jobhistory;
+    /**
+     * @OA\Property(
+     *     description="User Education",
+     *     title="education",
+     * )
+     *
+     * @var string
+     */
     private $education;
+    /**
+     * @OA\Property(
+     *     description="User Create at",
+     *     title="createdAt",
+     * )
+     *
+     * @var string
+     */
     private $createdAt;
+    /**
+     * @OA\Property(
+     *     description="User Updated At",
+     *     title="updatedAt",
+     * )
+     *
+     * @var string
+     */
     private $updatedAt;
 
     public function __construct($username, $password) {

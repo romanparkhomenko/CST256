@@ -10,6 +10,10 @@ class JobPosts extends Model
 
     protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'companyname', 'jobtitle', 'salary', 'description', 'city'
+    ];
+
     public function users() {
         return $this->belongsToMany('App\User');
     }

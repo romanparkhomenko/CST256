@@ -2,14 +2,76 @@
 
 namespace App\Models;
 
-
+/**
+ * Class AffinityGroupModel
+ *
+ *
+ * @author  Roman Parkhomenko
+ * @package Model
+ * @OA\Schema(
+ *     description="Affinity Groups that users can join based on interest similiarities",
+ *     title="Affinity Groups Model",
+ *     required={"groupname", "descriptiono"}
+ * )
+ */
 class AffinityGroupModel {
-    private $id;
-    private $groupname;
-    private $city;
-    private $description;
-    private $skills;
-    private $education;
+    /**
+     * @OA\Property(
+     *     format="int64",
+     *     description="ID",
+     *     title="ID",
+     * )
+     *
+     * @var integer
+     */
+    public $id;
+
+    /**
+     * @OA\Property(
+     *     description="Group Name",
+     *     title="groupname",
+     * )
+     *
+     * @var string
+     */
+    public $groupname;
+    /**
+     * @OA\Property(
+     *     description="Group City",
+     *     title="city",
+     * )
+     *
+     * @var string
+     */
+    public $city;
+    /**
+     * @OA\Property(
+     *     description="Group Description",
+     *     title="description",
+     * )
+     *
+     * @var string
+     */
+    public $description;
+    /**
+     * @OA\Property(
+     *     description="Group Skills",
+     *     title="skills",
+     * )
+     *
+     * @var string
+     */
+    public $skills;
+
+    /**
+     * @OA\Property(
+     *     description="Group education",
+     *     title="education",
+     * )
+     *
+     * @var string
+     */
+    public $education;
 
     public function __construct($groupname, $description) {
         $this->groupname = $groupname;
