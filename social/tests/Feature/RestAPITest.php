@@ -2,21 +2,36 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RestAPITest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $response = $this->get('/');
+    use DatabaseTransactions;
 
-        $response->assertStatus(200);
+    public function testAPIExists()
+    {
+        $response = $this->get('/api/documentation');
+        $response->assertSuccessful();
+    }
+
+    public function testGetUsers()
+    {
+        $response = $this->get('/api/users');
+        $response->assertSuccessful();
+    }
+
+    public function testGetJobs()
+    {
+        $response = $this->get('/api/jobs');
+        $response->assertSuccessful();
+    }
+
+    public function testGetGroups()
+    {
+        $response = $this->get('/api/groups');
+        $response->assertSuccessful();
     }
 }

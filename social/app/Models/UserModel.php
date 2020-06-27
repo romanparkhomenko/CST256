@@ -24,7 +24,7 @@ class UserModel {
      *
      * @var integer
      */
-    private $id;
+    public $id;
 
     /**
      * @OA\Property(
@@ -34,7 +34,7 @@ class UserModel {
      *
      * @var string
      */
-    private $firstname;
+    public $firstname;
     /**
      * @OA\Property(
      *     description="User Last Name",
@@ -43,7 +43,7 @@ class UserModel {
      *
      * @var string
      */
-    private $lastname;
+    public $lastname;
     /**
      * @OA\Property(
      *     description="Username",
@@ -52,7 +52,7 @@ class UserModel {
      *
      * @var string
      */
-    private $username;
+    public $username;
     /**
      * @OA\Property(
      *     description="User Password",
@@ -61,7 +61,7 @@ class UserModel {
      *
      * @var string
      */
-    private $password;
+    public $password;
     /**
      * @OA\Property(
      *     description="User Email",
@@ -70,7 +70,7 @@ class UserModel {
      *
      * @var string
      */
-    private $email;
+    public $email;
     /**
      * @OA\Property(
      *     description="User Phone",
@@ -79,7 +79,7 @@ class UserModel {
      *
      * @var string
      */
-    private $phone;
+    public $phone;
     /**
      * @OA\Property(
      *     description="About User Snippet",
@@ -88,7 +88,7 @@ class UserModel {
      *
      * @var string
      */
-    private $about;
+    public $about;
     /**
      * @OA\Property(
      *     description="User Job Title",
@@ -97,7 +97,7 @@ class UserModel {
      *
      * @var string
      */
-    private $jobtitle;
+    public $jobtitle;
     /**
      * @OA\Property(
      *     description="User Admin Access",
@@ -106,7 +106,7 @@ class UserModel {
      *
      * @var string
      */
-    private $isAdmin;
+    public $isAdmin;
     /**
      * @OA\Property(
      *     description="User Skills",
@@ -115,7 +115,7 @@ class UserModel {
      *
      * @var string
      */
-    private $skills;
+    public $skills;
     /**
      * @OA\Property(
      *     description="User Job History",
@@ -124,7 +124,7 @@ class UserModel {
      *
      * @var string
      */
-    private $jobhistory;
+    public $jobhistory;
     /**
      * @OA\Property(
      *     description="User Education",
@@ -133,7 +133,7 @@ class UserModel {
      *
      * @var string
      */
-    private $education;
+    public $education;
     /**
      * @OA\Property(
      *     description="User Create at",
@@ -142,7 +142,7 @@ class UserModel {
      *
      * @var string
      */
-    private $createdAt;
+    public $createdAt;
     /**
      * @OA\Property(
      *     description="User Updated At",
@@ -151,7 +151,7 @@ class UserModel {
      *
      * @var string
      */
-    private $updatedAt;
+    public $updatedAt;
 
     public function __construct($username, $password) {
         $this->username = $username;
